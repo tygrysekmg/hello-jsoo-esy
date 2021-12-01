@@ -1,0 +1,28 @@
+{
+  "name": "hello-jsoo-esy",
+  "version": "0.1.0",
+  "description": "Jsoo workflow with Reason and Esy",
+  "license": "MIT",
+  "esy": {
+    "build": "refmterr dune build --force ./src/Hello.bc.js",
+    "NOTE": "Optional release Section. Customizes result of `esy release`",
+    "release": {
+      "releasedBinaries": [ "Hello.exe" ],
+      "deleteFromBinaryRelease": [ "*esy_ocaml_*", "*refmterr-*", "ocaml-*" ]
+    }
+  },
+  "scripts": {
+    "build:watch": "refmterr dune build ./src/Hello.bc.js -w",
+    "build:prod": "refmterr dune build --profile=prod -f ./src/Hello.bc.js"
+  },
+  "dependencies": {
+    "@esy-ocaml/reason": "*",
+    "@opam/dune": "*",
+    "@opam/js_of_ocaml": "~3.4.0",
+    "@opam/js_of_ocaml-ppx": "~3.4.0",
+    "jsoo-is-sorted-esy": "^0.0.4",
+    "ocaml": "~4.8.0",
+    "refmterr": "*"
+  },
+  "devDependencies": { "ocaml": "~4.8.0" }
+}
